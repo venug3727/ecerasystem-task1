@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import type { User, UserRole } from '../types/Job';
+import type { User,} from '../types/Job';
 
 interface UserContextType {
   user: User | null;

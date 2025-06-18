@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import type { Job, Application } from '../types/Job';
 import { jobsApi, applicationsApi } from '../services/api';
 import { 
@@ -18,7 +18,7 @@ import {
 const ApplicationDetailsPage: React.FC = () => {
   const { jobId, applicationId } = useParams<{ jobId: string; applicationId: string }>();
   const navigate = useNavigate();
-  const location = useLocation();
+  
   
   const [job, setJob] = useState<Job | null>(null);
   const [application, setApplication] = useState<Application | null>(null);

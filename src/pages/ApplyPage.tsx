@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Job, ApplicationFormData } from '../types/Job';
 import { jobsApi, applicationsApi } from '../services/api';
-import { Send, CheckCircle, AlertCircle, User, Mail, Briefcase } from 'lucide-react';
+import { Send,  AlertCircle, User, Mail, Briefcase } from 'lucide-react';
 
 const ApplyPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -10,7 +10,6 @@ const ApplyPage: React.FC = () => {
   const [job, setJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState<ApplicationFormData>({
     applicantName: '',
@@ -96,21 +95,6 @@ const ApplyPage: React.FC = () => {
           >
             Back to Jobs
           </button>
-        </div>
-      </div>
-    );
-  }
-
-  if (showSuccess) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="bg-emerald-100 rounded-full p-6 w-24 h-24 mx-auto mb-6 flex items-center justify-center">
-            <CheckCircle className="h-12 w-12 text-emerald-600" />
-          </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Application Submitted!</h2>
-          <p className="text-gray-600 mb-2">Thank you for applying to {job?.title} at {job?.companyName}.</p>
-          <p className="text-gray-500 text-sm">We'll be in touch soon. Redirecting you back...</p>
         </div>
       </div>
     );
