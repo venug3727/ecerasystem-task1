@@ -52,3 +52,12 @@ export default tseslint.config({
   },
 })
 ```
+
+# Deploying to Vercel
+
+To deploy this frontend to Vercel:
+
+1. Import the project in Vercel and select the `frontend` directory as the root.
+2. Set the build command to `npm run vercel-build` (or just `npm run build`).
+3. Set the output directory to `dist`.
+4. No custom Vercel config is required for static hosting.
